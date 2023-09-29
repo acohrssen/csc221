@@ -2,7 +2,12 @@ from gasp import *
 
 begin_graphics()
 
-Line((200, 100), (100, 300))
+def draw_face(x,y):
+    Line((200, 100), (100, 300))
+    Circle((x-15, y+10), 5)
+    Line((x, y+10), (x-10, y-10))
 
-update_when('key_pressed')   
+
+draw_face(200,200)
+update_when('key_pressed')
 end_graphics()
