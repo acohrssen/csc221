@@ -49,3 +49,40 @@ def place_robots(amount):
     rob_x = random.randint(25, 50)
     rob_y = random.randint(25, 50)
     robot = Box((10 *  rob_x, 10 * rob_y), 10, 10, filled=True, color=color.PURPLE, thickness=1)
+
+    def move_robot():
+    global rob_x, rob_y, robot, player_x, players_y, player_form
+    if rob_y < player_y:
+        rob_y += 1
+    elif rob_y > player_y:
+        rob_y -= 1
+    if rob_x < player_x:
+        rob_x += 1
+    elif rob_x > player_x:
+        rob_x -= 1
+    move_to(robot, (rob_x * 10, rob_y * 10))
+
+
+def collision():
+    global rob_y, rob_x, player_y, player_x
+    if rob_y == player_y and rob_x == player_x:
+        return True
+    else:
+        return False
+
+
+global finished
+# graphic window
+
+begin_graphics()
+finished = False
+
+place_player()
+
+while not finished:
+    move_player()
+    move_robot()
+    collision()
+    finished = collision()
+
+end_graphics()
