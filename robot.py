@@ -1,18 +1,13 @@
-from gasp import * 
+from gasp import *
+from random import randint
 
-begin_graphics()
-finished = False
+class Player:
+    pass
+class Robot:
+    pass
 
 def place_player():
-    print("Here I am!")
-
-def move_player():
-    print("I'm moving...")
-    update_when('key_pressed')
-
-place_player()
-
-while not finished:
-    move_player()
-
-end_graphics()
+    print("hi!")
+    player_x = random.randint(0, 63)
+    player_y = random.randint(0, 47)
+    player_shape = Circle((10 * player_x + 5, 10 * player_y + 5), 5, filled=True)
